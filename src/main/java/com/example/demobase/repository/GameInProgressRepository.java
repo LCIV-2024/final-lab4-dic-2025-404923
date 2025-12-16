@@ -1,6 +1,8 @@
 package com.example.demobase.repository;
 
 import com.example.demobase.model.GameInProgress;
+import com.example.demobase.model.Player;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -16,5 +18,6 @@ public interface GameInProgressRepository extends JpaRepository<GameInProgress, 
     
     @Query("SELECT g FROM GameInProgress g WHERE g.jugador.id = :playerId ORDER BY g.fechaInicio DESC")
     java.util.List<GameInProgress> findByJugadorIdOrderByFechaInicioDesc(@Param("playerId") Long playerId);
+
 }
 
